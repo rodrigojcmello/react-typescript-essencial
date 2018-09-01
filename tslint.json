@@ -5,6 +5,12 @@
         "tslint-react"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "quotemark": [
+            true,
+            "single",
+            "jsx-single"
+        ]
+    },
     "rulesDirectory": []
 }
