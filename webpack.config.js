@@ -3,7 +3,6 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const path = require('path');
 const produção = process.env.NODE_ENV == 'production';
 
 const config = {
@@ -14,7 +13,7 @@ const config = {
         path: `${__dirname}/dist`,
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+        extensions: ['.ts', '.tsx']
     },
     module: {
         rules: [
@@ -48,7 +47,6 @@ const config = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss',
                             plugins: [autoprefixer()]
                         }
                     }

@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as s from "./OláMundo.scss";
+import * as React from 'react';
+import * as s from './OláMundo.scss';
 
 interface IProps {
     compiler: string;
@@ -23,10 +23,10 @@ export class OláMundo extends React.PureComponent<IProps, IState> {
         super(props);
         this.state = {
             lista: [
-                { nome: "RODRIGO MELLO", idade: 27 },
-                { nome: "TESTE", idade: 33 },
+                { nome: 'RODRIGO MELLO', idade: 27 },
+                { nome: 'TESTE', idade: 33 },
             ],
-            nome: "Rodrigo",
+            nome: 'rodrigo',
             número: 10,
             // teste: "ok",
         };
@@ -54,7 +54,7 @@ export class OláMundo extends React.PureComponent<IProps, IState> {
                 {lista}
                 <button
                     onClick={this.adicionar}
-                    data-valor="10"
+                    data-valor='10'
                 >
                     adicionar
                 </button>
