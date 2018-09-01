@@ -1,0 +1,9 @@
+/* .azul {
+    color: blue;
+} */
+:local .azul {
+    color: rgb(255, 0, 191);
+}
+:local .verde {
+    color: green;
+}
