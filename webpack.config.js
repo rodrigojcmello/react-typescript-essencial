@@ -29,19 +29,27 @@ const config = {
             },
             {
                 enforce: 'pre',
-                test: /\.css$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 loader: 'typed-css-modules-loader'
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
+                            sourceMap: !produção,
                             localIdentName: '[name]__[local]--[hash:base64:5]'
+                        }
+                    },
+                    'sass-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: [autoprefixer()]
                         }
                     }
                 ]

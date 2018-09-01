@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as s from "./OláMundo.css";
+import * as s from "./OláMundo.scss";
 
 interface IProps {
     compiler: string;
@@ -45,10 +45,9 @@ export class OláMundo extends React.PureComponent<IProps, IState> {
                 </div>
             );
         });
-        console.log(s);
         return (
             <>
-                <h1 className={s.azul}>
+                <h1 className={s.verde}>
                     Olá {this.state.nome} from {this.props.compiler} and {this.props.framework}!
                 </h1>
                 contador: {this.state.número}
