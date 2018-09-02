@@ -27,14 +27,8 @@ const config = {
                 enforce: 'pre'
             },
             {
-                enforce: 'pre',
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loader: 'typed-css-modules-loader'
-            },
-            {
-                test: /\.scss$/,
-                include: `${__dirname}src/componentes`,
                 use: [
                     'style-loader',
                     {
@@ -51,7 +45,8 @@ const config = {
                             ident: 'postcss',
                             plugins: [autoprefixer()]
                         }
-                    }
+                    },
+                    'typed-css-modules-loader'
                 ]
             },
             {
@@ -86,9 +81,9 @@ if (produção) {
     )
 } else {
     config.devtool = 'source-map';
-    config.plugins.push(
-        new CheckerPlugin()
-    )
+    // config.plugins.push(
+    //     new CheckerPlugin()
+    // )
 }
 
 console.log('produção', produção);
