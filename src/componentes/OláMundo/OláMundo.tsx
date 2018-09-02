@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as s from './OláMundo.scss';
 
 import Acesso from '../telas/Acesso/Acesso';
+import Perfil from '../telas/Perfil/Perfil';
 
 interface IProps {
     compiler: string;
@@ -54,11 +55,12 @@ export default class OláMundo extends React.PureComponent<IProps, IState> {
                 contador: {this.state.número}
                 {lista}
                 <Acesso />
+                <Perfil />
                 <button
                     onClick={this.adicionar}
                     data-valor='10'
                 >
-                    adicionar
+                    adicionar2
                 </button>
             </>
         );

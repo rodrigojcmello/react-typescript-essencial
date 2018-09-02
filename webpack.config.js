@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -19,12 +18,23 @@ const config = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'awesome-typescript-loader'
-            },
-            {
-                test: /\.js$/,
-                use: 'source-map-loader',
-                enforce: 'pre'
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                            '@babel/preset-typescript'
+                        ],
+                        plugins: [
+                            '@babel/plugin-proposal-class-properties',
+                            produção ? '@babel/plugin-transform-react-inline-elements' : {},
+                            produção ? 'transform-remove-console' : {}
+                        ],
+                        cacheDirectory: true
+                    }
+                },
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
@@ -81,9 +91,6 @@ if (produção) {
     )
 } else {
     config.devtool = 'source-map';
-    // config.plugins.push(
-    //     new CheckerPlugin()
-    // )
 }
 
 console.log('produção', produção);
