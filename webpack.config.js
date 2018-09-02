@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const produção = process.env.NODE_ENV == 'production';
 
 const config = {
@@ -39,6 +40,7 @@ const config = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
+                enforce: 'pre',
                 use: [
                     'style-loader',
                     {
@@ -87,10 +89,13 @@ const config = {
 
 if (produção) {
     config.plugins.push(
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['dist'])
     )
 } else {
     config.devtool = 'source-map';
+    config.plugins.push(
+        new ForkTsCheckerWebpackPlugin()
+    )
 }
 
 console.log('produção', produção);

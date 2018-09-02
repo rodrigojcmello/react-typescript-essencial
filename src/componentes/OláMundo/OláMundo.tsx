@@ -30,7 +30,7 @@ export default class OláMundo extends React.PureComponent<IProps, IState> {
                 { nome: 'TESTE', idade: 33 },
             ],
             nome: 'rodrigo',
-            número: 10,
+            número: 5,
         };
     }
     public adicionar = (evento: React.SyntheticEvent<HTMLButtonElement>) => {

@@ -11,7 +11,7 @@ export default class Perfil extends React.PureComponent<{}, {}> {
         return (
             <>
                 <div className={s.perfil}>
-                    PERFIL
+                    PERFIL 123
                 </div>
             </>
         );
