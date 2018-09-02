@@ -13,7 +13,7 @@ const config = {
         path: `${__dirname}/dist`,
     },
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     module: {
         rules: [
@@ -34,6 +34,7 @@ const config = {
             },
             {
                 test: /\.scss$/,
+                include: `${__dirname}src/componentes`,
                 use: [
                     'style-loader',
                     {
@@ -47,6 +48,7 @@ const config = {
                     {
                         loader: 'postcss-loader',
                         options: {
+                            ident: 'postcss',
                             plugins: [autoprefixer()]
                         }
                     }

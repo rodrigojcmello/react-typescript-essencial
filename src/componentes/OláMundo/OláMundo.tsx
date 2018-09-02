@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as s from './OláMundo.scss';
 
+import Acesso from '../Acesso/Acesso';
+
 interface IProps {
     compiler: string;
     framework: string;
@@ -18,7 +20,7 @@ interface IState {
     lista: ILista[];
 }
 
-export class OláMundo extends React.PureComponent<IProps, IState> {
+export default class OláMundo extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
@@ -28,7 +30,6 @@ export class OláMundo extends React.PureComponent<IProps, IState> {
             ],
             nome: 'rodrigo',
             número: 10,
-            // teste: "ok",
         };
     }
     public adicionar = (evento: React.SyntheticEvent<HTMLButtonElement>) => {
@@ -47,11 +48,12 @@ export class OláMundo extends React.PureComponent<IProps, IState> {
         });
         return (
             <>
-                <h1 className={s.verde}>
+                <h1 className={s.amarelho}>
                     Olá {this.state.nome} from {this.props.compiler} and {this.props.framework}!
                 </h1>
                 contador: {this.state.número}
                 {lista}
+                <Acesso />
                 <button
                     onClick={this.adicionar}
                     data-valor='10'
