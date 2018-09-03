@@ -12,15 +12,15 @@ interface IProps {
     idade: number;
 }
 
+interface ILista {
+    nome: string;
+    idade: number;
+}
+
 interface IState {
     número: number;
     nome: string;
     lista: ILista[];
-}
-
-interface ILista {
-    nome: string;
-    idade: number;
 }
 
 class OláMundo extends React.PureComponent<IProps, IState> {
