@@ -1,17 +1,12 @@
 import * as React from 'react';
+import { Lista } from '../gênericos/Lista';
+import { Acesso } from '../telas/Acesso/Acesso';
+import { Perfil } from '../telas/Perfil/Perfil';
 import * as s from './OláMundo.scss';
-
-import Acesso from '../telas/Acesso/Acesso';
-import Perfil from '../telas/Perfil/Perfil';
 
 interface IProps {
     compiler: string;
     framework: string;
-    idade: number;
-}
-
-interface ILista {
-    nome: string;
     idade: number;
 }
 
@@ -21,13 +16,18 @@ interface IState {
     lista: ILista[];
 }
 
-export default class OláMundo extends React.PureComponent<IProps, IState> {
+interface ILista {
+    nome: string;
+    idade: number;
+}
+
+class OláMundo extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
             lista: [
                 { nome: 'RODRIGO MELLO', idade: 27 },
-                { nome: 'TESTE', idade: 33 },
+                { nome: 'FULANO', idade: 33 },
             ],
             nome: 'rodrigo',
             número: 5,
@@ -56,6 +56,7 @@ export default class OláMundo extends React.PureComponent<IProps, IState> {
                 {lista}
                 <Acesso />
                 <Perfil />
+                <Lista lista={this.state.lista} />
                 <button
                     onClick={this.adicionar}
                     data-valor='10'
@@ -66,3 +67,8 @@ export default class OláMundo extends React.PureComponent<IProps, IState> {
         );
     }
 }
+
+export {
+    ILista,
+    OláMundo,
+};
