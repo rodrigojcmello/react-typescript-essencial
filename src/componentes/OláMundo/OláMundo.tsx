@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Lista } from '../gênericos/Lista';
 import { Acesso } from '../telas/Acesso/Acesso';
@@ -59,6 +60,7 @@ class OláMundo extends React.PureComponent<IProps, IState> {
                 <Acesso />
                 <Perfil />
                 <Lista lista={this.state.lista} />
+                <Link to='/acesso'>Acesso</Link>
                 <button
                     onClick={this.adicionar}
                     data-valor='10'
