@@ -32,7 +32,7 @@ class OláMundo extends React.PureComponent<IProps, IState> {
                 { nome: 'FULANO', idade: 33 },
             ],
             nome: 'rodrigo',
-            número: 5,
+            número: 123,
         };
     }
     public adicionar = (evento: React.SyntheticEvent<HTMLButtonElement>) => {
