@@ -3,11 +3,21 @@
         color: blue;
         user-select: none;
     }
+
     .verde {
         color: rgb(221, 99, 0);
         user-select: none;
     }
+
     .amarelho {
         color: rgb(224, 176, 137);
+        font-size: 12px;
+        height: 30px;
+        widows: 30px;
     }
+}
+
+.box {
+    height: 150px;
+    width: 90px;
 }

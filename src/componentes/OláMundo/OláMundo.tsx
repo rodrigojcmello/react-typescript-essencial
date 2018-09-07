@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import { Lista } from '../gênericos/Lista';
 import { Acesso } from '../telas/Acesso/Acesso';
 import { Perfil } from '../telas/Perfil/Perfil';
+import { MiniLista } from './MiniLista/MiniLista';
 
 import * as s from './OláMundo.scss';
 
@@ -43,20 +44,13 @@ class OláMundo extends React.PureComponent<IProps, IState> {
         }));
     }
     public render() {
-        const lista: object = this.state.lista.map((item: ILista, índice: number) => {
-            return (
-                <div key={índice}>
-                    {item.nome} {item.idade}
-                </div>
-            );
-        });
         return (
             <>
                 <h1 className={s.azul}>
                     Olá {this.state.nome} from {this.props.compiler} and {this.props.framework}!
                 </h1>
                 contador: {this.state.número}
-                {lista}
+                <MiniLista lista={this.state.lista} />
                 <Acesso />
                 <Perfil />
                 <Lista lista={this.state.lista} />

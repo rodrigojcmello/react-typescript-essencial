@@ -10,7 +10,8 @@
             true,
             "single",
             "jsx-single"
-        ]
+        ],
+        "jsx-no-multiline-js": false
     },
     "rulesDirectory": []
 }

@@ -23,7 +23,14 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            '@babel/preset-env',
+                            [
+                                "@babel/preset-env",
+                                {
+                                    "targets": !produção
+                                        ? "last 1 chrome version"
+                                        : ["> 1%", "ie 10"]
+                                }
+                            ],
                             '@babel/preset-react',
                             '@babel/preset-typescript'
                         ],
@@ -97,7 +104,9 @@ if (produção) {
 } else {
     config.devtool = 'source-map';
     config.plugins.push(
-        new ForkTsCheckerWebpackPlugin()
+        new ForkTsCheckerWebpackPlugin({
+            tslint: './tslint.json'
+        })
     )
 }
 
