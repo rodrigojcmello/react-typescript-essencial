@@ -1,8 +1,8 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin');
 const produção = process.env.NODE_ENV == 'production';
 
 const config = {
@@ -77,8 +77,7 @@ const config = {
             }]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './index.html' }),
-        new webpack.WatchIgnorePlugin([/css\.d\.ts$/])
+        new HtmlWebpackPlugin({ template: './index.html' })
     ],
     optimization: {
         runtimeChunk: 'single',
@@ -105,7 +104,12 @@ if (produção) {
     config.devtool = 'source-map';
     config.plugins.push(
         new ForkTsCheckerWebpackPlugin({
-            tslint: './tslint.json'
+            tslint: './tslint.json',
+            async: false
+        }),
+        new ForkTsCheckerNotifierWebpackPlugin({
+            title: 'Webpack',
+            skipSuccessful: true
         })
     )
 }
