@@ -101,7 +101,7 @@ if (produção) {
         new CleanWebpackPlugin(['dist'])
     )
 } else {
-    config.devtool = 'source-map';
+    config.devtool = 'eval-source-map';
     config.plugins.push(
         new ForkTsCheckerWebpackPlugin({
             tslint: './tslint.json',
